@@ -20,14 +20,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
     
 
-    <title>Vibra Positiva - Contactanos</title>
+    <title>Enviado</title>
 
 </head>
 <body>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <a href="https://api.whatsapp.com/send?phone=+5492266440618&text=hola%20quisiera%20consultarte%20sobre%20las%20flores%20de%20Bach,%20muchas%20gracias" class="float" target="_blank">
-    <i class="fa fa-whatsapp my-float"></i>
-    </a> <!-- link de whatsapp -->
+
+<?php 
+$myemail = 'nikodread1979@gmail.com';
+$name = $_POST['nombre'];
+$apell = $_POST ['apellido'];
+$email = $_POST['email'];
+$phone = $_POST['telefono'];
+
+$to = $myemail;
+$email_subject = "Nuevo mensaje: $subject";
+$email_body = "Haz recibido un nuevo mensaje. \n Nombre: $name \n Apellido: $apell \n Correo: $email \n Mensaje: \n $phone";
+$headers = "From: $email";
+
+mail($to, $email_subject, $email_body, $headers);
+echo "El mensaje se ha enviado correctamente";
+?>
+
     <header class="container-fluid">
         <div class="content-logo">
             <img src="../img/logoPersonas.jpg" alt="banner con logo principal flores" >    
@@ -79,7 +92,7 @@
       <div class="container-fluid">
         <div class="form-container">
             <p class="title">Ingrese sus datos para que nos pongamos en contacto</p> 
-            <form  method="POST" action="../enviar.php" class="form-container">
+            <form  method="POST" action="enviar.php" class="form-container">
                 <div class="form-item nombre">
                     <input type="text" name="nombre" placeholder="Nombre">
                     <span class="item-indicator"></span>
@@ -105,6 +118,7 @@
         </div>
       </div>
     </div> 
+    
 
     <footer class="container-fluid">
         <!--las redes sociales apuntan al home sin usuario definido por el momento-->
@@ -116,8 +130,9 @@
                 <i class="fab fa-instagram-square"></i>
             </a>
         </div>
-            <p> Webmaster: Nicolas Barra </p> <!--Acomodar mas adelante cuando corresponda-->
+            <p> Webmaster: Nicolas Barra</p> <!--Acomodar mas adelante cuando corresponda-->
     </footer>
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
